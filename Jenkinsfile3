@@ -18,6 +18,7 @@ pipeline {
           steps {
             script {
               checkout scm
+              sh sudo apt-get install git
               sh "git rev-parse --short HEAD > .git/commit-id"  
               gitcommit = readFile('.git/commit-id').trim()
             }
